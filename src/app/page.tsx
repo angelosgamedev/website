@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
+import { useForm, ValidationError } from '@formspree/react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import {
-  Gamepad2,
   Mail,
   MapPin,
   Play,
@@ -18,7 +18,6 @@ import {
   Code,
   Youtube,
   Sparkles,
-  Layers,
   Menu,
   X,
 } from "lucide-react"
@@ -28,6 +27,7 @@ import Link from "next/link"
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [state, handleSubmit] = useForm("xwpbovby")
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode)
@@ -78,7 +78,14 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl w-full">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center justify-center">
-              <Gamepad2 className="h-8 w-8 text-yellow-500" />
+              <Image
+                src="/images/controller-logo.png"
+                width={33}
+                height={33}
+                alt="Controller Logo"
+                className="h-8 w-8"
+                priority
+              />
               <span
                 className={`ml-2 text-xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400`}
               >
@@ -199,7 +206,7 @@ export default function Home() {
                   Welcome to my portfolio website!
                 </h1>
                 <p className={`mx-auto max-w-[700px] ${themeClasses.textSecondary} md:text-xl lg:text-2xl`}>
-                 Hello! My name is Angelo and I am Game Designer. Below you can find my work and detailed skill set 
+                 Hello! My name is Angelo and I am a Game Designer. Below you can find my work and detailed skill set 
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -448,7 +455,7 @@ export default function Home() {
                   </div>
                   <CardTitle className={`${themeClasses.text} text-center`}>Particle Systems</CardTitle>
                   <CardDescription className={`${themeClasses.textSecondary} text-center`}>
-                    I'm knowledgable in creating Particle Systems Niagara & Cascade and a bit in After Effects.
+                    I&apos;m knowledgable in creating Particle Systems Niagara & Cascade and a bit in After Effects.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -487,32 +494,113 @@ export default function Home() {
                 <CardHeader>
                   <CardTitle className={themeClasses.text}>Get In Touch</CardTitle>
                   <CardDescription className={themeClasses.textSecondary}>
-                    Send me a message and I'll get back to you within 24 hours.
+                    {state.succeeded ? (
+                      "Thanks for your message! I&apos;ll get back to you soon."
+                    ) : (
+                      "Send me a message and I&apos;ll get back to you within 24 hours."
+                    )}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <label className={`text-sm font-medium ${themeClasses.text}`}>Name</label>
-                      <Input placeholder="Your name" className={themeClasses.inputBg} />
+                  {state.succeeded ? (
+                    <div className="text-center space-y-4">
+                      <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-emerald-500/20">
+                        <svg
+                          className="w-8 h-8 text-emerald-500"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                      <p className={`text-lg font-medium ${themeClasses.text}`}>Message Successfully Sent!</p>
+                      <p className={themeClasses.textSecondary}>Thank you for reaching out. I&apos;ll get back to you soon.</p>
+                      <Button 
+                        className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full"
+                        onClick={() => window.location.reload()}
+                      >
+                        Send Another Message
+                      </Button>
                     </div>
-                    <div className="space-y-2">
-                      <label className={`text-sm font-medium ${themeClasses.text}`}>Email</label>
-                      <Input type="email" placeholder="your@email.com" className={themeClasses.inputBg} />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className={`text-sm font-medium ${themeClasses.text}`}>Title</label>
-                    <Input className={themeClasses.inputBg} />
-                  </div>
-                  <div className="space-y-2">
-                    <label className={`text-sm font-medium ${themeClasses.text}`}>Message</label>
-                    <Textarea className={`${themeClasses.inputBg} min-h-[100px]`} />
-                  </div>
-                  <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full">
-                    Send Message
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="space-y-2">
+                          <label className={`text-sm font-medium ${themeClasses.text}`}>Name</label>
+                          <Input 
+                            id="name"
+                            name="name"
+                            placeholder="Your name" 
+                            className={themeClasses.inputBg}
+                          />
+                          <ValidationError 
+                            prefix="Name" 
+                            field="name"
+                            errors={state.errors}
+                            className="text-red-500 text-sm"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className={`text-sm font-medium ${themeClasses.text}`}>Email</label>
+                          <Input 
+                            id="email"
+                            name="email"
+                            type="email" 
+                            placeholder="your@email.com" 
+                            className={themeClasses.inputBg}
+                          />
+                          <ValidationError 
+                            prefix="Email" 
+                            field="email"
+                            errors={state.errors}
+                            className="text-red-500 text-sm"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <label className={`text-sm font-medium ${themeClasses.text}`}>Title</label>
+                        <Input 
+                          id="title"
+                          name="title"
+                          className={themeClasses.inputBg}
+                        />
+                        <ValidationError 
+                          prefix="Title" 
+                          field="title"
+                          errors={state.errors}
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className={`text-sm font-medium ${themeClasses.text}`}>Message</label>
+                        <Textarea 
+                          id="message"
+                          name="message"
+                          className={`${themeClasses.inputBg} min-h-[100px]`}
+                        />
+                        <ValidationError 
+                          prefix="Message" 
+                          field="message"
+                          errors={state.errors}
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
+                      <Button 
+                        type="submit"
+                        disabled={state.submitting}
+                        className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full"
+                      >
+                        {state.submitting ? "Sending..." : "Send Message"}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </form>
+                  )}
                 </CardContent>
               </Card>
             </div>
