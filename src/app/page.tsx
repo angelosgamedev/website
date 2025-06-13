@@ -339,7 +339,7 @@ export default function Home() {
                       UI Reel
                     </CardTitle>
                     <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
-                      A reel of any UI related work I have worked on. For further information on how this work was made please look into the video's description.
+                      A reel of any UI related work I have worked on. For further information on how this work was made please look into the video&apos;s description.
                     </CardDescription>
                     <div className="flex flex-wrap gap-2 mb-4">
                       <Badge variant="secondary" className="bg-purple-500/20 text-purple-300">
@@ -381,7 +381,7 @@ export default function Home() {
                       JBA/DarbyTech VR Trailer
                     </CardTitle>
                     <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
-                      One of the projects I worked on for the IDTC department of Teesside University. For further information on this project please look into the video's description.
+                      One of the projects I worked on for the IDTC department of Teesside University. For further information on this project please look into the video&apos;s description.
                     </CardDescription>
                     <div className="flex flex-wrap gap-2 mb-4">
                       <Badge variant="secondary" className="bg-purple-500/20 text-purple-300">
