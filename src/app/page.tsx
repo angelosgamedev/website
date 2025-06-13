@@ -234,90 +234,177 @@ export default function Home() {
                 Portfolio Showcase
               </h2>
             </div>
-            <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-2">
-              <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
-                <CardHeader className="p-0">
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <Image
-                      src="/images/project-zero-hunter-thumbnail.jpg"
-                      width={400}
-                      height={200}
-                      alt="Project Zero Hunter"
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <CardTitle className={`text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 mb-2`}>
-                    Project Zero Hunter
-                  </CardTitle>
-                  <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
-                    A video Demonstration of my Final Year Project for my Computer Games Design Course.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <Badge variant="secondary" className="bg-purple-500/20 text-purple-300">
-                      Unreal Engine
-                    </Badge>
-                    <Badge variant="secondary" className="bg-blue-500/20 text-blue-300">
-                      2.5D
-                    </Badge>
-                    <Badge variant="secondary" className="bg-green-500/20 text-green-300">
-                      Action Platformer
-                    </Badge>
-                  </div>
-                  <div className="flex gap-2">
-                    <Link href="https://youtu.be/-l-yZcPCEkg" target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" className="bg-purple-600 hover:bg-purple-700 rounded-full">
-                        <Play className="h-4 w-4 mr-2" />
-                        View Video
-                      </Button>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="flex flex-col gap-6">
+              <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-2 w-full">
+                <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
+                  <CardHeader className="p-0">
+                    <div className="relative overflow-hidden rounded-t-lg">
+                      <Image
+                        src="/images/project-zero-hunter-thumbnail.jpg"
+                        width={400}
+                        height={200}
+                        alt="Project Zero Hunter"
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <CardTitle className={`text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 mb-2`}>
+                      Project Zero Hunter
+                    </CardTitle>
+                    <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
+                      A video Demonstration of my Final Year Project for my Computer Games Design Course.
+                    </CardDescription>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary" className="bg-purple-500/20 text-purple-300">
+                        Unreal Engine
+                      </Badge>
+                      <Badge variant="secondary" className="bg-blue-500/20 text-blue-300">
+                        2.5D
+                      </Badge>
+                      <Badge variant="secondary" className="bg-green-500/20 text-green-300">
+                        Action Platformer
+                      </Badge>
+                    </div>
+                    <div className="flex gap-2">
+                      <Link href="https://youtu.be/-l-yZcPCEkg" target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" className="bg-purple-600 hover:bg-purple-700 rounded-full">
+                          <Play className="h-4 w-4 mr-2" />
+                          View Video
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
 
-              <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
-                <CardHeader className="p-0">
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <Image
-                      src="/images/vfx-projectile.png"
-                      width={400}
-                      height={200}
-                      alt="VFX Reel"
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <CardTitle className={`text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 mb-2`}>
-                    VFX Reel
-                  </CardTitle>
-                  <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
-                    A reel of any visual effects related work I have worked on. A lot was used in Project Zero Hunter.
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <Badge variant="secondary" className="bg-purple-500/20 text-purple-300">
-                      Niagara
-                    </Badge>
-                    <Badge variant="secondary" className="bg-blue-500/20 text-blue-300">
-                      Cascade
-                    </Badge>
-                    <Badge variant="secondary" className="bg-green-500/20 text-green-300">
-                      After Effects
-                    </Badge>
-                  </div>
-                  <div className="flex gap-2">
-                    <Link href="https://youtu.be/g1L7oKwexGQ" target="_blank" rel="noopener noreferrer">
-                      <Button size="sm" className="bg-purple-600 hover:bg-purple-700 rounded-full">
-                        <Play className="h-4 w-4 mr-2" />
-                        View Video
-                      </Button>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
+                <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
+                  <CardHeader className="p-0">
+                    <div className="relative overflow-hidden rounded-t-lg">
+                      <Image
+                        src="/images/vfx-projectile.png"
+                        width={400}
+                        height={200}
+                        alt="VFX Reel"
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <CardTitle className={`text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 mb-2`}>
+                      VFX Reel
+                    </CardTitle>
+                    <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
+                      A reel of any visual effects related work I have worked on. A lot was used in Project Zero Hunter.
+                    </CardDescription>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary" className="bg-purple-500/20 text-purple-300">
+                        Niagara
+                      </Badge>
+                      <Badge variant="secondary" className="bg-blue-500/20 text-blue-300">
+                        Cascade
+                      </Badge>
+                      <Badge variant="secondary" className="bg-green-500/20 text-green-300">
+                        After Effects
+                      </Badge>
+                    </div>
+                    <div className="flex gap-2">
+                      <Link href="https://youtu.be/g1L7oKwexGQ" target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" className="bg-purple-600 hover:bg-purple-700 rounded-full">
+                          <Play className="h-4 w-4 mr-2" />
+                          View Video
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+              <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-2 w-full">
+                <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
+                  <CardHeader className="p-0">
+                    <div className="relative overflow-hidden rounded-t-lg">
+                      <Image
+                        src="/images/ui-reel.png"
+                        width={400}
+                        height={200}
+                        alt="UI Reel"
+                        className="w-full h-48 object-cover object-bottom group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <CardTitle className={`text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 mb-2`}>
+                      UI Reel
+                    </CardTitle>
+                    <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
+                      A reel of any UI related work I have worked on. For further information on how this work was made please look into the video's description.
+                    </CardDescription>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary" className="bg-purple-500/20 text-purple-300">
+                        Photoshop
+                      </Badge>
+                      <Badge variant="secondary" className="bg-blue-500/20 text-blue-300">
+                        Premiere Pro
+                      </Badge>
+                      <Badge variant="secondary" className="bg-green-500/20 text-green-300">
+                        After Effects
+                      </Badge>
+                    </div>
+                    <div className="flex gap-2">
+                      <Link href="https://www.youtube.com/watch?v=LIgFhxbEL6I" target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" className="bg-purple-600 hover:bg-purple-700 rounded-full">
+                          <Play className="h-4 w-4 mr-2" />
+                          View Video
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
+                  <CardHeader className="p-0">
+                    <div className="relative overflow-hidden rounded-t-lg">
+                      <Image
+                        src="/images/JBA-project.png"
+                        width={400}
+                        height={200}
+                        alt="JBA/DarbyTech VR Trailer"
+                        className="w-full h-48 object-cover object-[center_80%] group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <CardTitle className={`text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 mb-2`}>
+                      JBA/DarbyTech VR Trailer
+                    </CardTitle>
+                    <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
+                      One of the projects I worked on for the IDTC department of Teesside University. For further information on this project please look into the video's description.
+                    </CardDescription>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Badge variant="secondary" className="bg-purple-500/20 text-purple-300">
+                        Unreal Engine
+                      </Badge>
+                      <Badge variant="secondary" className="bg-blue-500/20 text-blue-300">
+                        VR
+                      </Badge>
+                      <Badge variant="secondary" className="bg-green-500/20 text-green-300">
+                        Blueprints
+                      </Badge>
+                    </div>
+                    <div className="flex gap-2">
+                      <Link href="https://youtu.be/Nyd-tMtpD7U" target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" className="bg-purple-600 hover:bg-purple-700 rounded-full">
+                          <Play className="h-4 w-4 mr-2" />
+                          View Video
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
