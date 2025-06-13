@@ -699,8 +699,7 @@ export default function Home() {
       <footer
         className={`flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t ${themeClasses.footerBorder}`}
       >
-        <p className={`text-xs ${themeClasses.textMuted}`}>© 2024 Angelos Parisis. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+        <nav className="flex gap-4 sm:gap-6">
           <Link href="https://www.linkedin.com/in/angelosparisis/" target="_blank" rel="noopener noreferrer" className={`text-xs ${themeClasses.textMuted} hover:${themeClasses.text} transition-colors flex items-center gap-2`}>
             <Image
               src="/images/linkedin-logo.png"
