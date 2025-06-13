@@ -206,7 +206,7 @@ export default function Home() {
                   Welcome to my portfolio website!
                 </h1>
                 <p className={`mx-auto max-w-[700px] ${themeClasses.textSecondary} md:text-xl lg:text-2xl`}>
-                 Hello! My name is Angelo and I am a Game Designer. Here you can find a showcase of my work and detailed skill set.
+                 Hello! My name is Angelo and I am a Game Designer. Here you will find a showcase of my work and detailed skill set.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
