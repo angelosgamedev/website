@@ -206,7 +206,7 @@ export default function Home() {
                   Welcome to my portfolio website!
                 </h1>
                 <p className={`mx-auto max-w-[700px] ${themeClasses.textSecondary} md:text-xl lg:text-2xl`}>
-                 Hello! My name is Angelo and I am a Game Designer. Below you can find my work and detailed skill set 
+                 Hello! My name is Angelo and I am a Game Designer. Here you can find a showcase of my work and detailed skill set 
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -421,10 +421,10 @@ export default function Home() {
                     A little bit about me
                   </h2>
                   <p className={`max-w-[600px] ${themeClasses.textSecondary} text-base md:text-lg`}>
-                    I dropped out of university in Greece to start studying so I could get into an education revolving
-                    game development, chasing my dreams as some would put it. I have a passion for video editing and
+                    I dropped out of university in Greece so I could transition into an education revolving
+                    game development in the UK, chasing my dreams as some would put it. I have a passion for video editing and
                     making people laugh which resulted in a successful Youtube career with over 100k subs. I grew up on
-                    a farm in Greece with 5 dogs and a load of cats. I love collecting vinyl and going to stand-up
+                    a farm in Greece with 5 dogs and lots and lots of cats. I love collecting vinyl and going to stand-up
                     shows.
                   </p>
                 </div>
@@ -531,7 +531,7 @@ export default function Home() {
                   <CardTitle className={`${themeClasses.text} text-center`}>Photoshop & Premiere Pro</CardTitle>
                   <CardDescription className={`${themeClasses.textSecondary} text-center`}>
                     Photoshop changed my life as it changed the way I pitch games and ideas. I have been using Photoshop
-                    and Premiere Pro for years to grow my platforms.
+                    and Premiere Pro for years now to grow my platforms.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -542,7 +542,7 @@ export default function Home() {
                   </div>
                   <CardTitle className={`${themeClasses.text} text-center`}>Particle Systems</CardTitle>
                   <CardDescription className={`${themeClasses.textSecondary} text-center`}>
-                    I&apos;m knowledgable in creating Particle Systems Niagara & Cascade and a bit in After Effects.
+                    I&apos;m knowledgable in creating Particle Systems in Niagara & Cascade and a bit in After Effects.
                   </CardDescription>
                 </CardHeader>
               </Card>
