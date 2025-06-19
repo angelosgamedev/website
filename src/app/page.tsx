@@ -24,15 +24,10 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isDarkMode] = useState(true)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [state, handleSubmit] = useForm("xwpbovby")
   const [activeVideo, setActiveVideo] = useState<{ id: string; title: string } | null>(null)
-
-  const toggleDarkMode = () => {
-    // Do nothing - we want to stay in dark mode
-    return
-  }
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -610,9 +605,9 @@ export default function Home() {
                   <CardTitle className={themeClasses.text}>Get In Touch</CardTitle>
                   <CardDescription className={themeClasses.textSecondary}>
                     {state.succeeded ? (
-                      "Thanks for your message! I'll get back to you soon."
+                      "Thanks for your message! I&apos;ll get back to you soon."
                     ) : (
-                      "Send me a message and I'll get back to you within 24 hours."
+                      "Send me a message and I&apos;ll get back to you within 24 hours."
                     )}
                   </CardDescription>
                 </CardHeader>
@@ -635,7 +630,7 @@ export default function Home() {
                         </svg>
                       </div>
                       <p className={`text-lg font-medium ${themeClasses.text}`}>Message Successfully Sent!</p>
-                      <p className={themeClasses.textSecondary}>Thank you for reaching out. I'll get back to you soon.</p>
+                      <p className={themeClasses.textSecondary}>Thank you for reaching out. I&apos;ll get back to you soon.</p>
                       <Button 
                         className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full"
                         onClick={() => window.location.reload()}
