@@ -7,13 +7,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { VideoModal } from "@/components/ui/video-modal"
 import {
   Mail,
   MapPin,
   Play,
   ArrowRight,
-  Moon,
-  Sun,
   GraduationCap,
   Code,
   Youtube,
@@ -28,9 +27,11 @@ export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [state, handleSubmit] = useForm("xwpbovby")
+  const [activeVideo, setActiveVideo] = useState<{ id: string; title: string } | null>(null)
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode)
+    // Do nothing - we want to stay in dark mode
+    return
   }
 
   const toggleMobileMenu = () => {
@@ -70,6 +71,13 @@ export default function Home() {
         footerBorder: "border-gray-200",
         mobileMenuBg: "bg-white/95 backdrop-blur-sm",
       }
+
+  // Helper function to extract YouTube video ID from URL
+  const getYouTubeId = (url: string) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
+    const match = url.match(regExp)
+    return match && match[2].length === 11 ? match[2] : null
+  }
 
   return (
     <div className={`flex flex-col min-h-screen ${themeClasses.bg}`}>
@@ -119,26 +127,10 @@ export default function Home() {
               >
                 Contact
               </Link>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleDarkMode}
-                className={`text-yellow-400 hover:text-yellow-500 rounded-full transition-colors`}
-              >
-                {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </Button>
             </nav>
 
             {/* Mobile Navigation */}
             <div className="ml-auto flex md:hidden items-center justify-end gap-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleDarkMode}
-                className={`text-yellow-400 hover:text-yellow-500 rounded-full transition-colors`}
-              >
-                {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </Button>
               <Button
                 variant="ghost"
                 size="sm"
@@ -155,9 +147,9 @@ export default function Home() {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div
-          className={`md:hidden ${themeClasses.mobileMenuBg} border-b ${isDarkMode ? "border-white/10" : "border-gray-200"} z-40`}
+          className={`fixed top-16 left-0 right-0 z-40 ${themeClasses.mobileMenuBg} border-b ${isDarkMode ? "border-white/10" : "border-gray-200"}`}
         >
-          <nav className="flex flex-col p-4 space-y-4">
+          <nav className="flex flex-col p-6 space-y-6">
             <Link
               href="#portfolio"
               onClick={closeMobileMenu}
@@ -238,7 +230,13 @@ export default function Home() {
               <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-2 w-full">
                 <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
                   <CardHeader className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
+                    <div 
+                      className="relative overflow-hidden rounded-t-lg cursor-pointer"
+                      onClick={() => setActiveVideo({ 
+                        id: getYouTubeId("https://youtu.be/-l-yZcPCEkg") || "", 
+                        title: "Project Zero Hunter" 
+                      })}
+                    >
                       <Image
                         src="/images/project-zero-hunter-thumbnail.jpg"
                         width={400}
@@ -247,6 +245,9 @@ export default function Home() {
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Play className="w-12 h-12 text-white" />
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
@@ -280,7 +281,13 @@ export default function Home() {
 
                 <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
                   <CardHeader className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
+                    <div 
+                      className="relative overflow-hidden rounded-t-lg cursor-pointer"
+                      onClick={() => setActiveVideo({ 
+                        id: getYouTubeId("https://youtu.be/g1L7oKwexGQ") || "", 
+                        title: "VFX Reel" 
+                      })}
+                    >
                       <Image
                         src="/images/vfx-projectile.png"
                         width={400}
@@ -289,6 +296,9 @@ export default function Home() {
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Play className="w-12 h-12 text-white" />
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
@@ -323,7 +333,13 @@ export default function Home() {
               <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-2 w-full">
                 <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
                   <CardHeader className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
+                    <div 
+                      className="relative overflow-hidden rounded-t-lg cursor-pointer"
+                      onClick={() => setActiveVideo({ 
+                        id: getYouTubeId("https://www.youtube.com/watch?v=LIgFhxbEL6I") || "", 
+                        title: "UI Reel" 
+                      })}
+                    >
                       <Image
                         src="/images/ui-reel.png"
                         width={400}
@@ -332,6 +348,9 @@ export default function Home() {
                         className="w-full h-48 object-cover object-bottom group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Play className="w-12 h-12 text-white" />
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
@@ -365,7 +384,13 @@ export default function Home() {
 
                 <Card className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}>
                   <CardHeader className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
+                    <div 
+                      className="relative overflow-hidden rounded-t-lg cursor-pointer"
+                      onClick={() => setActiveVideo({ 
+                        id: getYouTubeId("https://youtu.be/Nyd-tMtpD7U") || "", 
+                        title: "JBA/DarbyTech VR Trailer" 
+                      })}
+                    >
                       <Image
                         src="/images/JBA-project.png"
                         width={400}
@@ -374,6 +399,9 @@ export default function Home() {
                         className="w-full h-48 object-cover object-[center_80%] group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Play className="w-12 h-12 text-white" />
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
@@ -582,9 +610,9 @@ export default function Home() {
                   <CardTitle className={themeClasses.text}>Get In Touch</CardTitle>
                   <CardDescription className={themeClasses.textSecondary}>
                     {state.succeeded ? (
-                      "Thanks for your message! I&apos;ll get back to you soon."
+                      "Thanks for your message! I'll get back to you soon."
                     ) : (
-                      "Send me a message and I&apos;ll get back to you within 24 hours."
+                      "Send me a message and I'll get back to you within 24 hours."
                     )}
                   </CardDescription>
                 </CardHeader>
@@ -607,7 +635,7 @@ export default function Home() {
                         </svg>
                       </div>
                       <p className={`text-lg font-medium ${themeClasses.text}`}>Message Successfully Sent!</p>
-                      <p className={themeClasses.textSecondary}>Thank you for reaching out. I&apos;ll get back to you soon.</p>
+                      <p className={themeClasses.textSecondary}>Thank you for reaching out. I'll get back to you soon.</p>
                       <Button 
                         className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full"
                         onClick={() => window.location.reload()}
@@ -713,6 +741,14 @@ export default function Home() {
           </Link>
         </nav>
       </footer>
+
+      {/* Add the VideoModal component at the end of the return statement, just before the closing div */}
+      <VideoModal
+        isOpen={!!activeVideo}
+        onClose={() => setActiveVideo(null)}
+        videoId={activeVideo?.id || ""}
+        title={activeVideo?.title || ""}
+      />
     </div>
   )
 }
