@@ -105,16 +105,28 @@ export default function Home() {
                 Portfolio
               </Link>
               <Link
+                href="#software"
+                className={`text-sm font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
+              >
+                Software
+              </Link>
+              <Link
                 href="#about"
                 className={`text-sm font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
               >
                 About
               </Link>
               <Link
-                href="#software"
+                href="#games"
                 className={`text-sm font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
               >
-                Software
+                Games
+              </Link>
+              <Link
+                href="#books"
+                className={`text-sm font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
+              >
+                Books
               </Link>
               <Link
                 href="#contact"
@@ -153,6 +165,13 @@ export default function Home() {
               Portfolio
             </Link>
             <Link
+              href="#software"
+              onClick={closeMobileMenu}
+              className={`text-lg font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
+            >
+              Software
+            </Link>
+            <Link
               href="#about"
               onClick={closeMobileMenu}
               className={`text-lg font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
@@ -160,11 +179,18 @@ export default function Home() {
               About
             </Link>
             <Link
-              href="#software"
+              href="#games"
               onClick={closeMobileMenu}
               className={`text-lg font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
             >
-              Software
+              Games
+            </Link>
+            <Link
+              href="#books"
+              onClick={closeMobileMenu}
+              className={`text-lg font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
+            >
+              Books
             </Link>
             <Link
               href="#contact"
@@ -432,72 +458,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About Section */}
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto max-w-7xl px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h2
-                    className={`text-3xl font-medium tracking-tighter sm:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400`}
-                  >
-                    A little bit about me
-                  </h2>
-                  <p className={`max-w-[600px] ${themeClasses.textSecondary} text-base md:text-lg`}>
-                    I dropped out of university in Greece so I could transition into an education revolving
-                    game development in the UK, chasing my dreams as some would put it. I have a passion for video editing and
-                    making people laugh which resulted in a successful Youtube career with over 100k subs. I grew up on
-                    a farm in Greece with 5 dogs and lots and lots of cats. I love collecting vinyl and going to stand-up
-                    shows.
-                  </p>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="flex items-center gap-3">
-                    <GraduationCap className="h-5 w-5 text-yellow-400" />
-                    <span className={`${themeClasses.textSecondary} text-sm`}>Computer Games Design BA w/Honours</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Youtube className="h-5 w-5 text-blue-400" />
-                    <span className={themeClasses.textSecondary}>Premiere Pro Video Editor</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Code className="h-5 w-5 text-purple-400" />
-                    <span className={themeClasses.textSecondary}>Blueprinting & C#</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Image
-                      src="/images/microsoft-logo.png"
-                      width={20}
-                      height={20}
-                      alt="Microsoft"
-                      className="h-5 w-5 object-contain"
-                    />
-                    <span className={themeClasses.textSecondary}>Excel & Powerpoint Certified</span>
-                  </div>
-                </div>
-                <Link href="#contact">
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white w-fit rounded-full"
-                  >
-                    Want to work together?
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-              <div className="flex items-center justify-center">
-                <Image
-                  src="/images/angelos-coastal-photo.jpeg"
-                  width={400}
-                  height={400}
-                  alt="Angelos Parisis"
-                  className={`aspect-square overflow-hidden rounded-xl object-cover border-2 ${isDarkMode ? "border-white/10" : "border-gray-200"}`}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Software Section */}
         <section id="software" className={`w-full py-12 md:py-24 lg:py-32 ${themeClasses.sectionBg}`}>
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
@@ -569,6 +529,215 @@ export default function Home() {
                   </CardDescription>
                 </CardHeader>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h2
+                    className={`text-3xl font-medium tracking-tighter sm:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400`}
+                  >
+                    A little bit about me
+                  </h2>
+                  <p className={`max-w-[600px] ${themeClasses.textSecondary} text-base md:text-lg`}>
+                    I dropped out of university in Greece so I could transition into an education revolving
+                    game development in the UK, chasing my dreams as some would put it. I have a passion for video editing and
+                    making people laugh which resulted in a successful Youtube career with over 100k subs. I grew up on
+                    a farm in Greece with 5 dogs and lots and lots of cats. I love collecting vinyl and going to stand-up
+                    shows.
+                  </p>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="flex items-center gap-3">
+                    <GraduationCap className="h-5 w-5 text-yellow-400" />
+                    <span className={`${themeClasses.textSecondary} text-sm`}>Computer Games Design BA w/Honours</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Youtube className="h-5 w-5 text-blue-400" />
+                    <span className={themeClasses.textSecondary}>Premiere Pro Video Editor</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Code className="h-5 w-5 text-purple-400" />
+                    <span className={themeClasses.textSecondary}>Blueprinting & C#</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src="/images/microsoft-logo.png"
+                      width={20}
+                      height={20}
+                      alt="Microsoft"
+                      className="h-5 w-5 object-contain"
+                    />
+                    <span className={themeClasses.textSecondary}>Excel & Powerpoint Certified</span>
+                  </div>
+                </div>
+                <Link href="#contact">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white w-fit rounded-full"
+                  >
+                    Want to work together?
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/images/angelos-coastal-photo.jpeg"
+                  width={400}
+                  height={400}
+                  alt="Angelos Parisis"
+                  className={`aspect-square overflow-hidden rounded-xl object-cover border-2 ${isDarkMode ? "border-white/10" : "border-gray-200"}`}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Games Section */}
+        <section id="games" className={`w-full py-12 md:py-24 lg:py-32`}>
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <h2
+                className={`text-3xl font-medium tracking-tighter sm:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400`}
+              >
+                Games that inspire me
+              </h2>
+              <p className={`max-w-[900px] ${themeClasses.textSecondary} md:text-xl`}>
+                These games have changed the way I approach design and remind me why I love the medium
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/kh2fm-cover.png"
+                  fill
+                  alt="Kingdom Hearts II Final Mix"
+                  className="object-contain outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/MMX4-cover.png"
+                  fill
+                  alt="Mega Man X4"
+                  className="object-contain outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/bloodborne-cover.jpeg"
+                  fill
+                  alt="Bloodborne"
+                  className="object-contain outline outline-2 outline-gray-300"
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/nier-cover.png"
+                  fill
+                  alt="NieR: Automata"
+                  className="object-contain outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/twewy-cover.png"
+                  fill
+                  alt="The World Ends With You"
+                  className="object-contain outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/mgs2-cover.png?v=2"
+                  fill
+                  alt="Metal Gear Solid 2"
+                  className="object-contain outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/metaphor-cover.jpeg"
+                  fill
+                  alt="Metaphor: ReFantazio"
+                  className="object-contain outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/FFPOR-cover.png"
+                  fill
+                  alt="Final Fantasy: Parasite Eve Origin"
+                  className="object-contain outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Books Section */}
+        <section id="books" className={`w-full py-6 md:py-12 lg:py-16`}>
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-2 text-center mb-6">
+              <h2
+                className={`text-2xl font-medium tracking-tighter sm:text-4xl text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400`}
+              >
+                Books that changed my life
+              </h2>
+              <p className={`max-w-[900px] ${themeClasses.textSecondary} text-base md:text-lg`}>
+                These books have shaped the way I view the world, myself, game design and fiction
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/levelup-cover.png"
+                  fill
+                  alt="Level Up!"
+                  className="object-fill outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/artof-cover.png"
+                  fill
+                  alt="The Art Of Game Design"
+                  className="object-fill outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/modernman-cover.png"
+                  fill
+                  alt="The Modern Man Guide"
+                  className="object-fill outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
+              <div className="relative w-full pb-[150%]">
+                <Image
+                  src="/images/lovecraft-cover.jpg"
+                  fill
+                  alt="H.P. Lovecraft Complete Collection"
+                  className="object-fill outline outline-2 outline-gray-300"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </section>
