@@ -704,7 +704,7 @@ export default function Home() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-6xl mx-auto">
               <div className="relative w-full pb-[150%]">
                 <Image
-                  src="/images/levelup-cover.png"
+                  src="/images/Levelup-Cover.png"
                   fill
                   alt="Level Up!"
                   className="object-fill outline outline-2 outline-gray-300"
@@ -713,7 +713,7 @@ export default function Home() {
               </div>
               <div className="relative w-full pb-[150%]">
                 <Image
-                  src="/images/artof-cover.png"
+                  src="/images/Artof-cover.png"
                   fill
                   alt="The Art Of Game Design"
                   className="object-fill outline outline-2 outline-gray-300"
@@ -722,7 +722,7 @@ export default function Home() {
               </div>
               <div className="relative w-full pb-[150%]">
                 <Image
-                  src="/images/modernman-cover.png"
+                  src="/images/Modernman-cover.png"
                   fill
                   alt="The Modern Man Guide"
                   className="object-fill outline outline-2 outline-gray-300"
@@ -731,7 +731,7 @@ export default function Home() {
               </div>
               <div className="relative w-full pb-[150%]">
                 <Image
-                  src="/images/lovecraft-cover.jpg"
+                  src="/images/Lovecraft-cover.jpg"
                   fill
                   alt="H.P. Lovecraft Complete Collection"
                   className="object-fill outline outline-2 outline-gray-300"
