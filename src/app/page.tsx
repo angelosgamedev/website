@@ -776,7 +776,7 @@ export default function Home() {
                     {state.succeeded ? (
                       "Thanks for your message! I&apos;ll get back to you soon."
                     ) : (
-                      "Send me a message and I&apos;ll get back to you within 24 hours."
+                      "Send me a message and I'll get back to you within 24 hours."
                     )}
                   </CardDescription>
                 </CardHeader>
