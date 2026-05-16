@@ -20,6 +20,9 @@
     "shadcn": "^2.6.2",
     "tailwind-merge": "^3.3.1"
   },
+  "overrides": {
+    "postcss": "8.5.14"
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
