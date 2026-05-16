@@ -74,6 +74,24 @@ export default function Home() {
     return match && match[2].length === 11 ? match[2] : null
   }
 
+  const youtubeChannelUrl = "https://www.youtube.com/@JoJosDankAdventures"
+  const youtubeChannelAvatar =
+    "https://yt3.googleusercontent.com/s298wi4BSHQWCMK3VTlUBwSrs5UL1odp4GezRmRc_bdw3eH7ucHubnrLtOB2he29qrOuyLwRpQk=s176-c-k-c0x00ffffff-no-rj"
+  const youtubeVideos = [
+    {
+      id: "6Ke61gPT3Bk",
+      title: "JoJo Merch Is UNHINGED",
+      description:
+        "From typical figurine lines to collabs you would not even begin to imagine exist — JoJo merchandise can get really weird.",
+    },
+    {
+      id: "PW9AC15Boq8",
+      title: "Why Persona feels like JoJo",
+      description:
+        "Comparing the similarities between Persona and JoJo's Bizarre Adventure, from tarot to thematic parallels.",
+    },
+  ]
+
   return (
     <div className={`flex flex-col min-h-screen ${themeClasses.bg}`}>
       {/* Header */}
@@ -103,6 +121,12 @@ export default function Home() {
                 className={`text-sm font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
               >
                 Portfolio
+              </Link>
+              <Link
+                href="#youtube"
+                className={`text-sm font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
+              >
+                YouTube
               </Link>
               <Link
                 href="#software"
@@ -165,6 +189,13 @@ export default function Home() {
               Portfolio
             </Link>
             <Link
+              href="#youtube"
+              onClick={closeMobileMenu}
+              className={`text-lg font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
+            >
+              YouTube
+            </Link>
+            <Link
               href="#software"
               onClick={closeMobileMenu}
               className={`text-lg font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 hover:from-yellow-200 hover:to-yellow-500 transition-all`}
@@ -205,11 +236,11 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative overflow-hidden">
+        <section className="w-full pt-12 pb-6 md:pt-16 md:pb-8 lg:pt-20 lg:pb-10 relative overflow-hidden">
           <div className={`absolute inset-0 ${themeClasses.gradientOverlay}`} />
           <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
+            <div className="flex flex-col items-center text-center">
+              <div className="space-y-3">
                 <Badge variant="secondary" className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30">
                   Available for Work
                 </Badge>
@@ -218,27 +249,21 @@ export default function Home() {
                 >
                   Welcome to my portfolio website!
                 </h1>
-                <p className={`mx-auto max-w-[700px] ${themeClasses.textSecondary} md:text-xl lg:text-2xl`}>
-                 Hello! My name is Angelo and I am a Game Designer. Here you will find a showcase of my work and detailed skill set.
+                <p className={`mx-auto max-w-5xl ${themeClasses.textSecondary} md:text-xl lg:text-2xl`}>
+                  <span className="block whitespace-nowrap">
+                    Hello! My name is Angelo and I am a Game Designer and a Video Editor.
+                  </span>
+                  <span className="block">
+                    Here you can browse some of my work and get a better idea of my skills and experience.
+                  </span>
                 </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="#portfolio">
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full"
-                  >
-                    View My Work
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* Portfolio Section */}
-        <section id="portfolio" className={`w-full py-12 md:py-24 lg:py-32 ${themeClasses.sectionBg}`}>
+        <section id="portfolio" className={`w-full pt-6 pb-12 md:pt-10 md:pb-24 lg:pt-12 lg:pb-32 ${themeClasses.sectionBg}`}>
           <div className="container mx-auto max-w-7xl px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <h2
@@ -263,7 +288,7 @@ export default function Home() {
                         width={400}
                         height={200}
                         alt="Project Zero Hunter"
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -314,7 +339,7 @@ export default function Home() {
                         width={400}
                         height={200}
                         alt="VFX Reel"
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -366,7 +391,7 @@ export default function Home() {
                         width={400}
                         height={200}
                         alt="UI Reel"
-                        className="w-full h-48 object-cover object-bottom group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 md:h-72 object-cover object-bottom group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -417,7 +442,7 @@ export default function Home() {
                         width={400}
                         height={200}
                         alt="JBA/DarbyTech VR Trailer"
-                        className="w-full h-48 object-cover object-[center_80%] group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 md:h-72 object-cover object-[center_80%] group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -454,6 +479,110 @@ export default function Home() {
                   </CardContent>
                 </Card>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* YouTube Section */}
+        <section id="youtube" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container mx-auto max-w-7xl px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <h2
+                className={`text-3xl font-medium tracking-tighter sm:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400`}
+              >
+                My YouTube Channel
+              </h2>
+            </div>
+
+            <div
+              className={`flex flex-col sm:flex-row items-center gap-6 p-6 rounded-xl border mb-12 ${themeClasses.cardBg}`}
+            >
+              <Image
+                src={youtubeChannelAvatar}
+                width={96}
+                height={96}
+                alt="Angelo's Dank Adventure channel avatar"
+                className="rounded-full border-2 border-red-500/40 shrink-0"
+              />
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2 flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <Youtube className="h-6 w-6 text-red-500" />
+                  <h3
+                    className={`text-xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400`}
+                  >
+                    Angelo&apos;s Dank Adventure
+                  </h3>
+                </div>
+                <p className={`${themeClasses.textSecondary} w-full leading-snug space-y-0`}>
+                  <span className="block">
+                    Absolutely obsessed with JoJo&apos;s Bizarre Adventure, easily my favorite manga and anime of all time.
+                  </span>
+                  <span className="block">
+                    I love making videos on it, covering the current media made for it but also merch.
+                  </span>
+                </p>
+                <Link href={youtubeChannelUrl} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white rounded-full">
+                    <Youtube className="h-4 w-4 mr-2" />
+                    Visit Channel
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-2 w-full">
+              {youtubeVideos.map((video) => (
+                <Card
+                  key={video.id}
+                  className={`${themeClasses.cardBg} ${themeClasses.cardHover} transition-all duration-300 group`}
+                >
+                  <CardHeader className="p-0">
+                    <div
+                      className="relative overflow-hidden rounded-t-lg cursor-pointer"
+                      onClick={() =>
+                        setActiveVideo({
+                          id: video.id,
+                          title: video.title,
+                        })
+                      }
+                    >
+                      <Image
+                        src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                        width={400}
+                        height={260}
+                        alt={video.title}
+                        className="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Play className="w-12 h-12 text-white" />
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <CardTitle
+                      className={`text-transparent bg-clip-text bg-gradient-to-b from-white to-yellow-400 mb-2`}
+                    >
+                      {video.title}
+                    </CardTitle>
+                    <CardDescription className={`${themeClasses.textSecondary} mb-4`}>
+                      {video.description}
+                    </CardDescription>
+                    <div className="flex gap-2">
+                      <Link
+                        href={`https://www.youtube.com/watch?v=${video.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" className="bg-red-600 hover:bg-red-700 rounded-full">
+                          <Play className="h-4 w-4 mr-2" />
+                          Watch on YouTube
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
@@ -545,11 +674,11 @@ export default function Home() {
                     A little bit about me
                   </h2>
                   <p className={`max-w-[600px] ${themeClasses.textSecondary} text-base md:text-lg`}>
-                    I dropped out of university in Greece so I could transition into an education revolving
-                    game development in the UK, chasing my dreams as some would put it. I have a passion for video editing and
-                    making people laugh which resulted in a successful Youtube career with over 100k subs. I grew up on
-                    a farm in Greece with 5 dogs and lots and lots of cats. I love collecting vinyl and going to stand-up
-                    shows.
+                    I dropped out of university in Greece to pursue an education revolving game development in the UK,
+                    chasing my dreams as some would put it. Along the way, I developed a strong passion for video editing
+                    and creating content that makes people laugh, which led me to building a YouTube channel with over 80k subscribers.
+                    <br />
+                    I grew up on a farm in Greece with 5 dogs and lots and lots of cats. I love collecting vinyl records and stand-up.
                   </p>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -609,7 +738,7 @@ export default function Home() {
                 Games that inspire me
               </h2>
               <p className={`max-w-[900px] ${themeClasses.textSecondary} md:text-xl`}>
-                These games have changed the way I approach design and remind me why I love the medium
+                These games have changed the way I approach game design and remind me why I love the medium
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -698,7 +827,7 @@ export default function Home() {
                 Books that changed my life
               </h2>
               <p className={`max-w-[900px] ${themeClasses.textSecondary} text-base md:text-lg`}>
-                These books have shaped the way I view the world, myself, game design and fiction
+                These books have helped shape the way I view the world, myself, game design and fiction
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-6xl mx-auto">
